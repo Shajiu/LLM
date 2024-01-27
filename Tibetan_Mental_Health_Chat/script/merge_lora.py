@@ -7,9 +7,9 @@ import torch
 
 
 def merge_lora_to_base_model():
-    model_name_or_path = '/home/zhumx/code/model/LLama2_base'
-    adapter_name_or_path = '/home/zhumx/code/Firefly-master/output/firefly-llama2-7b/checkpoint-500'
-    save_path = '/home/zhumx/code/Firefly-master/output/firefly-llama2-7b-qlora-sft-merge'
+    model_name_or_path = 'LLama2_base'
+    adapter_name_or_path = 'llama2-7b/checkpoint-500'
+    save_path = 'llama2-7b-qlora-sft-merge'
 
     config = AutoConfig.from_pretrained(model_name_or_path)
     tokenizer = AutoTokenizer.from_pretrained(
