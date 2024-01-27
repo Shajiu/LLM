@@ -147,7 +147,7 @@ python single_chat.py
 ## 七、性能
 待补充...
 
-## 七、引用
+## 八、引用
 若使用本项目的数据、代码或模型，请引用本项目。
 ```text
 @misc{Tibetan_Mental_Health_Chat,
