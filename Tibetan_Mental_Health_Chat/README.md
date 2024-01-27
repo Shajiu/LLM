@@ -1,6 +1,6 @@
 # 藏文心理健康支持对话数据集(Tibetan_Mental)与大模型(Tibetan_Mental_Chat)
 
-## 项目简介
+## 一、项目简介
 **Tibetan_Mental_Chat(藏文心理健康对话机器人)** 是一个开源的藏文心理健康支持对话的大语言模型项目，支持QLoRA和全量参数微调Baichuan2、CodeLLaMA、LLaMA2、LLaMA、Qwen、Baichuan、ChatGLM2、InternLM、Ziya、Bloom、XVERSE等开源模型。
 
 
@@ -9,7 +9,7 @@
 - 📗 支持绝大部分主流的开源大模型，如Baichuan2、CodeLLaMA、LLaMA2、LLaMA、Qwen、Baichuan、ChatGLM2、InternLM、Ziya、Bloom、XVERSE等。
 - 📗 支持lora与base model进行权重合并，推理更便捷。
 
-## 安装环境
+## 二、安装环境
 在requirements.txt下固定了几个主要的python包的版本，执行如下脚本即可。
 
 **注意：Baichuan2需要安装pytorch 2.0。除Baichuan2以外，其他模型的训练，我们均在torch==1.13上进行训练。**
@@ -17,7 +17,7 @@
 pip install requirements.txt
 ```
 
-## 模型列表
+## 三、模型列表
 
 🔔 使用本项目的训练代码，以及上述训练数据，我们训练并开源了以下模型。
 
@@ -28,7 +28,7 @@ pip install requirements.txt
 | [Tibetan_Baichuan2_7B_Mental_Health](https://huggingface.co/shajiu/Tibetan_Baichuan2_7B_Mental_Health) | baichuan-inc/Baichuan2-7B-Base     |1024     |  
 | [Tibetan_Llama2_7B_Mental_Health](https://huggingface.co/shajiu/Tibetan_Llama2_7B_Mental_Health)   | meta-llama/Llama-2-7b      |1024     |  
 
-## 训练数据
+## 四、训练数据
 🔔 目前本项目主要整理了如下指令数据集，并将其整理成统一的数据格式：
 
 | 数据集                                                                                                           | 介绍                                                                                                      |
@@ -63,10 +63,10 @@ pip install requirements.txt
 }
 ```
 
-## 模型训练
+## 五、模型训练
 目前支持全量参数指令微调、QLoRA指令微调。我们将训练中使用的各种组件抽取出来，以便后续的扩展和优化，详见component目录下的实现。训练时的参数配置存储在train_args目录下，方便统一管理和更改。大家可以在train_args目录下查看不同模型的训练配置。
 
-### 数据格式
+### 5.1 数据格式
 训练时，我们将多轮对话拼接成如下格式，然后进行tokenize。其中<s\>表示bos_token，</s\> 表示eos_token。
 ```
 <s>input1</s>target1</s>input2</s>target2</s>...
@@ -75,7 +75,7 @@ pip install requirements.txt
 这种方式充分利用了模型并行计算的优势，训练更加高效，且多轮对话中的每个target部分都参与了训练，训练更充分。
 否则，就需要把一个n轮对话，拆分成n条数据，且只计算最后一个target的loss，大大降低了训练效率。
 
-### 全量参数微调
+### 5.2 全量参数微调
 💻 执行如下命令即可进行全量参数微调：
 ```bash
 deepspeed --num_gpus={num_gpus} train.py --train_args_file train_args/sft.json
@@ -101,7 +101,7 @@ deepspeed --num_gpus={num_gpus} train.py --train_args_file train_args/sft.json
 - fp16：使用使用fp16混合精度。V100建议开启。
 - bf16：使用使用bf16混合精度。A100建议开启。
 
-### QLoRA微调
+### 5.3 QLoRA微调
 
 关于QLoRA的详细介绍可参考文章：[【QLoRA实战】使用单卡高效微调bloom-7b1，效果惊艳](https://mp.weixin.qq.com/s/DED7yeiE0DibsVzTmMeDOw)
 
@@ -122,12 +122,12 @@ torchrun --nproc_per_node={num_gpus} train_qlora.py --train_args_file train_args
 - learning_rate：qlora中的学习率设置更大一些，一般为1e-4、2e-4。
 
 
-## 模型使用
+## 六、模型使用
 
 ### 权重合并
 如果使用LoRA或者QLoRA进行训练，本项目仅保存adapter的权重和配置文件，需要将adapter权重与base model进行合并。脚本见script/merge_lora.py
 
-### 模型推理
+### 6.1 模型推理
 我们提供了单轮对话和多轮对话的脚本，详见script/chat目录，该脚本可同时兼容本项目训练的所有模型进行推理，不适用于非本项目训练的模型。
 ```bash
 cd script/chat
@@ -140,13 +140,13 @@ python single_chat.py
 
 支持使用4bit进行推理，显存要求低，效果会略有下降。
 
-### 服务部署
+### 6.2 服务部署
 本项目支持将模型部署成HTTP服务，脚本在script/http下，使用flask进行开发。start_service.py为启动服务，post为发送请求，可按需进行修改。
 
 
 基于以上模型的局限性，我们要求本项目的代码、数据、模型不得用于对社会造成危害的用途，且应当遵循基座模型的商业许可。
 
-## 引用
+## 七、引用
 若使用本项目的数据、代码或模型，请引用本项目。
 ```text
 @misc{Tibetan_Mental_Health_Chat,
