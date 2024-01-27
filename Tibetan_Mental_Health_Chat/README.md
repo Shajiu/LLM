@@ -101,10 +101,6 @@ deepspeed --num_gpus={num_gpus} train.py --train_args_file train_args/sft.json
 - fp16：使用使用fp16混合精度。V100建议开启。
 - bf16：使用使用bf16混合精度。A100建议开启。
 
-firefly-bloom-2b6-v2的训练损失的变化趋势如下图所示：
-
-<img src="pics/train-loss-2b6-v2.png" width="400"> 
-
 ### QLoRA微调
 
 关于QLoRA的详细介绍可参考文章：[【QLoRA实战】使用单卡高效微调bloom-7b1，效果惊艳](https://mp.weixin.qq.com/s/DED7yeiE0DibsVzTmMeDOw)
