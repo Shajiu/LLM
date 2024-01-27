@@ -8,7 +8,7 @@ from component.utils import ModelUtils
 
 def main():
     # 使用合并后的模型进行推理
-    model_name_or_path = '/home/zhumx/code/Firefly-master/output/firefly-baichuan-7b-qlora-sft-merge'
+    model_name_or_path = 'baichuan-7b-qlora-sft-merge'
     adapter_name_or_path = None
 
     # 使用base model和adapter进行推理
