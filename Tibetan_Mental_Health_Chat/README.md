@@ -25,8 +25,8 @@ pip install requirements.txt
 
 | 模型                                                                             | 基座模型                                | Max Length |
 |--------------------------------------------------------------------------------|-------------------------------------|------------|
-| [Tibetan_Baichuan2_7B_Mental_Health](https://huggingface.co/shajiu/Tibetan_Baichuan2_7B_Mental_Health) | Baichuan2-7B-Base     |1024     |  
-| [Tibetan_Llama2_7B_Mental_Health](https://huggingface.co/shajiu/Tibetan_Llama2_7B_Mental_Health)   | Llama2-7B-Base      |1024     |  
+| [Tibetan_Baichuan2_7B_Mental_Health](https://huggingface.co/shajiu/Tibetan_Baichuan2_7B_Mental_Health) | baichuan-inc/Baichuan2-7B-Base     |1024     |  
+| [Tibetan_Llama2_7B_Mental_Health](https://huggingface.co/shajiu/Tibetan_Llama2_7B_Mental_Health)   | meta-llama/Llama-2-7b      |1024     |  
 
 ## 训练数据
 🔔 目前本项目主要整理了如下指令数据集，并将其整理成统一的数据格式：
