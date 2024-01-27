@@ -106,6 +106,6 @@ def main(input_file):
 
 
 if __name__ == '__main__':
-    input_file = "/home/zhumx/code/Firefly-master/data/tibetan_data.json"
-    output_file=open("/home/zhumx/code/Firefly-master/predictive_llama7b_llama2-chat.json",'w',encoding="utf-8")
+    input_file = "tibetan_data.json"
+    output_file=open("predictive_llama7b_llama2-chat.json",'w',encoding="utf-8")
     main(input_file)
