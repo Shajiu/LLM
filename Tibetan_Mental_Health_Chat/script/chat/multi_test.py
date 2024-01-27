@@ -15,7 +15,7 @@ import json
 
 def main(input_file):
     # 使用合并后的模型进行推理
-    model_name_or_path = '/home/zhumx/code/Firefly-master/output/firefly-llama2-7b-qlora-sft-merge'
+    model_name_or_path = 'llama2-7b-qlora-sft-merge'
     #model_name_or_path = "/home/zhumx/code/model/llama2-7b-chat"
     adapter_name_or_path = None
 
