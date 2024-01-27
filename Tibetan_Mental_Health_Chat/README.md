@@ -153,7 +153,7 @@ python single_chat.py
 ## 引用
 若使用本项目的数据、代码或模型，请引用本项目。
 ```text
-@misc{Firefly,
+@misc{Tibetan_Mental_Health_Chat,
   author = {shajiu},
   title = {藏文心理健康支持对话数据集(Tibetan_Mental)与大模型(Tibetan_Mental_Chat)},
   year = {2024},
